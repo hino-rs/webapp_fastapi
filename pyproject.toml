@@ -1,0 +1,46 @@
+[project]
+name = "webapp-fastapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "kaito hino", email = "n041969944@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[project.scripts]
+webapp-fastapi = "webapp_fastapi:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyleエラー
+    "F",    # pyflakes(未使用変数、未定義名など)
+    "W",    # pycodestyle警告
+    "I",    # importの並び順
+    "N",    # PEP8
+    "UP",   # 古い書き方を新しい構文へ
+    "B",    # bugbear(バグになりやすい書き方)
+    "SIM",  # 冗長な書き方の簡略化
+    "RUF",  # Ruff固有ルール
+]
+
+[tool.ruff.format]
+quote-style = "double"
