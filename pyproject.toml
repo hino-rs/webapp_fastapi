@@ -44,3 +44,12 @@ select = [
 
 [tool.ruff.format]
 quote-style = "double"
+
+[tool.mypy]
+files = ["src"]
+strict = true
+pretty = true
+warn_unreachable = true # 到達しないコードを検出
+disallow_untyped_defs = true # 型注釈のない関数を禁止する
+no_implicit_optional = true # Noneが入りうるなら`| None`と明示させる
+warn_return_any = true # Anyを返す関数に警告する
